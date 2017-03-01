@@ -47,7 +47,6 @@
        '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic@2.2.1/bundles/platform-browser-dynamic.umd.js',
        '@angular/router': 'npm:@angular/router@3.2.1/bundles/router.umd.js',
        'primeng': 'node_modules/primeng',
-       'angular2-polyfill': 'node_modules/angular2/bundles/angular2-polyfills.js',
 
        // other libraries
        'rxjs':                      'npm:rxjs@5.0.0-rc.3',
@@ -66,7 +65,11 @@
        'primeng': {
          main: 'primeng',
          defaultExtension: 'js'
-       }
+       },
+       'angular2-image-upload': {
+        main: 'index',
+        defaultExtension: 'js'
+      }
      }
    });
 

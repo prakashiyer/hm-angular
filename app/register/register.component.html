@@ -48,6 +48,8 @@
                     </div>
                     <div *ngIf="f1.submitted && !mobileNumber.valid" class="help-block">MobileNumber is required</div>
                 </div>
+
+
                 <div class="form-group" [ngClass]="{ 'has-error': f1.submitted && !birthdate.valid }">
                     <div class="hm-div-calendar">
                         <label for="birthdate">Birth date</label>
@@ -57,6 +59,26 @@
                     </div>
                     <div *ngIf="f1.submitted && !birthdate.valid" class="help-block">Birth date is required</div>
                 </div>
+                <div class="form-group" [ngClass]="{ 'has-error': f1.submitted && !primaryDoc.valid }">
+                    <div class="hm-div-calendar">
+                        <label for="primaryDoctor">Primary Doctor</label>
+                    </div>
+                    <div class="hm-div-calendar">
+                        <p-autoComplete name="primaryDoctor" [suggestions]="doctorResults" (completeMethod)="searchDoctors($event)"
+                                        [(ngModel)]="user.primaryDoctor" #primaryDoc="ngModel" required ></p-autoComplete>
+                    </div>
+                    <div *ngIf="f1.submitted && !primaryDoc.valid" class="help-block">Primary Doctor is required</div>
+                </div>
+                <div class="form-group" [ngClass]="{ 'has-error': f1.submitted && !primaryDoc.valid }">
+                    <div class="hm-div-calendar">
+                        <label for="primaryHospital">Primary Hospital</label>
+                    </div>
+                    <div class="hm-div-calendar">
+                        <p-autoComplete name="primaryHospital" [suggestions]="hospitalResults" (completeMethod)="searchHospitals($event)"
+                                        [(ngModel)]="user.primaryHospital" #primaryDoc="ngModel" required ></p-autoComplete>
+                    </div>
+                    <div *ngIf="f1.submitted && !primaryDoc.valid" class="help-block">Primary Doctor is required</div>
+                </div>
                 <div class="form-group" [ngClass]="{ 'has-error': f1.submitted && !password.valid }">
                     <div class="hm-div-input">
                     <input type="password" class="form-control" placeholder="Password"
@@ -64,6 +86,18 @@
                     </div>
                     <div *ngIf="f1.submitted && !password.valid" class="help-block">Password is required</div>
                 </div>
+                <div class="form-group">
+                    <div class="hm-div-calendar">
+                        <label for="image">Image</label>
+                    </div>
+                    <div class="hm-div-calendar">
+                        <input type="file" (change)="changeListner($event)" />
+                    </div>
+                    <div class="crop">
+                        <img class="image" />
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <button [disabled]="loading" class="btn btn-primary">Register</button>
                     <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />

@@ -7,9 +7,9 @@ export class User {
     lastName: string;
     gender: string;
     birthdate: date;
-    primaryDoctor: number;
-    primaryHospital: number;
+    primaryDoctor: string;
+    primaryHospital: string;
     doctorsList: number[];
     hospitalsList: number[];
-    image: byte[];
+    image: file;
 }

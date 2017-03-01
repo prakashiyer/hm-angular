@@ -18,10 +18,12 @@ useFactory: (backend: MockBackend, options: BaseRequestOptions) => {
                 if (connection.request.url.endsWith('/api/users/authenticate') && connection.request.method === RequestMethod.Post) {
                     // get parameters from post request
                     let params = JSON.parse(connection.request.getBody());
-
+                    console.log("user check ");
                     // find if any user matches login credentials
                     let filteredUsers = users.filter(user => {
-                        return (user.emailId === params.username || user.mobileNumber === params.username) && user.password === params.password;
+                        console.log("user: "+user.emailId +"/" + user.password);
+                        console.log("params: "+params.username +"/" + params.password);
+                        return (user.emailId === params.username && user.password === params.password);
                     });
 
                     if (filteredUsers.length) {
@@ -35,6 +37,10 @@ useFactory: (backend: MockBackend, options: BaseRequestOptions) => {
                                 mobileNumber: user.mobileNumber,
                                 firstName: user.firstName,
                                 lastName: user.lastName,
+                                birthdate: user.birthdate,
+                                primaryDoctor: user.primaryDoctor,
+                                primaryHospital: user.primaryHospital,
+                                image: user.image,
                                 token: 'fake-jwt-token'
                             }
                         })));
@@ -45,7 +51,7 @@ useFactory: (backend: MockBackend, options: BaseRequestOptions) => {
                 }
 
                 // authenticate doctors
-                if (connection.request.url.endsWith('/api/doctors/authenticate') && connection.request.method === RequestMethod.Post) {
+               /* if (connection.request.url.endsWith('/api/doctors/authenticate') && connection.request.method === RequestMethod.Post) {
                     // get parameters from post request
                     let params = JSON.parse(connection.request.getBody());
 
@@ -72,7 +78,7 @@ useFactory: (backend: MockBackend, options: BaseRequestOptions) => {
                         // else return 400 bad request
                         connection.mockError(new Error('Username or password is incorrect'));
                     }
-                }
+                }*/
 
                 // get users
                 if (connection.request.url.endsWith('/api/users') && connection.request.method === RequestMethod.Get) {

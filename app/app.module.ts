@@ -18,9 +18,7 @@ import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent,Tab, Tabs } from './register/index';
 
-import { CalendarModule,AutoCompleteModule } from 'primeng/primeng';
-
-
+import { CalendarModule,AutoCompleteModule, FileUploadModule } from 'primeng/primeng';
 
 
 @NgModule({
@@ -30,6 +28,7 @@ import { CalendarModule,AutoCompleteModule } from 'primeng/primeng';
         HttpModule,
         CalendarModule,
         AutoCompleteModule,
+        FileUploadModule,
         routing
 
     ],
