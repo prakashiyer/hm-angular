@@ -6,11 +6,11 @@ export class Doctor {
     firstName: string;
     lastName: string;
     gender: string;
-    doctorsList: number[];
-    hospitalsList: number[];
+    primaryHospital: string;
+    hospitalList: number[];
     degreeList: string[];
     specializationList: string[];
     workPhoneNumber: number;
-    image: byte[];
+    image: file;
 
 }

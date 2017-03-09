@@ -11,12 +11,6 @@ import { CalendarModule,AutoCompleteModule, FileUploadModule } from 'primeng/pri
 @Component({
     moduleId: module.id,
     templateUrl: `register.component.html`
-    /*template: `
-    <tabs>
-      <tab tabTitle="Tab 1">Tab 1 Content</tab>
-      <tab tabTitle="Tab 2">Tab 2 Content</tab>
-    </tabs>
-  `*/
 })
 
 
@@ -26,6 +20,8 @@ export class RegisterComponent {
     loading = false;
     doctorResults: string[];
     hospitalResults: string[];
+    qualificationResults: string[];
+    specializationResults: string[];
 
     constructor(
         private router: Router,
@@ -42,7 +38,11 @@ export class RegisterComponent {
     }
 
     searchHospitals(event) {
-        this.hospitalResults = ['abc','pqer'];
+        this.hospitalResults = ['fortis','jupiter'];
+    }
+
+    searchQualifications(event) {
+        this.qualificationResults = ['MBBS','MD'];
     }
 
     changeListner(event) {
